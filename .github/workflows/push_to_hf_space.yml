@@ -1,21 +1,20 @@
-name: Deploy to Hugging Face
-
+name: Sync to Hugging Face hub
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+  # to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  sync-to-hub:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
         with:
-          python-version: "3.x"
-      - name: Deploy to Hugging Face Spaces
-        uses: huggingface/spaces-deploy@v1
-        with:
-          username: ${{ github.repository_owner }} # Your Hugging Face username
-          repo: erinwolff/endpoint # Your Hugging Face Space name
-          token: ${{ secrets.HF_TOKEN }}
+          fetch-depth: 0
+          lfs: true
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git push https://erinwolff:$HF_TOKEN@huggingface.co/spaces/erinwolff/endpoint main
