@@ -14,8 +14,8 @@ jobs:
         with:
           python-version: "3.x"
       - name: Deploy to Hugging Face Spaces
-        uses: huggingface/actions/spaces-deploy@v1
+        uses: huggingface/spaces-deploy@v1
         with:
-          username: ${{ github.erinwolff }} # Your Hugging Face username
-          repo: ${{ github.event.endpoint }} # Your Hugging Face Space name
+          username: ${{ github.repository_owner }} # Your Hugging Face username
+          repo: endpoint # Your Hugging Face Space name
           token: ${{ secrets.HF_TOKEN }}
