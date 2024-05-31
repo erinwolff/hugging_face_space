@@ -44,7 +44,7 @@ def chat(input_text):
 
 with gr.Blocks() as interface:
     gr.Markdown(
-        "# TinyLlma-1.1B-Chat-v1.0 Test update"
+        "# TinyLlma-1.1B-Chat-v1.0 Test update 2"
     )  # Title using Markdown for better visual appeal
     input_text = gr.Textbox(label="Input Text")
     output_text = gr.Textbox(label="Generated Text")
