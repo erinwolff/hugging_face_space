@@ -17,5 +17,5 @@ jobs:
         uses: huggingface/spaces-deploy@v1
         with:
           username: ${{ github.repository_owner }} # Your Hugging Face username
-          repo: endpoint # Your Hugging Face Space name
+          repo: erinwolff/endpoint # Your Hugging Face Space name
           token: ${{ secrets.HF_TOKEN }}
